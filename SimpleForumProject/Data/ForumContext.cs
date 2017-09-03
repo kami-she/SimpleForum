@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class ForumContext : DbContext, IForumContext
+    public class ForumContext : DbContext, IForumContext
     {
         public ForumContext() : base("ForumContext")
         {

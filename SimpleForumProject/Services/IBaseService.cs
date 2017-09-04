@@ -10,8 +10,6 @@ namespace Services
 {
     public interface IBaseService<T> where T : IdProvider
     {
-        DbSet<T> Entities { get; }
-
         T Create(T entity);
 
         T Update(T entity);

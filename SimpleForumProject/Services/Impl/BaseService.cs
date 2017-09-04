@@ -10,14 +10,14 @@ namespace Services.Impl
 {
     public class BaseService<T> : IBaseService<T> where T : IdProvider
     {
-        protected IForumContext Context;
+        protected virtual IForumContext Context { get; set; }
 
         public BaseService(IForumContext context)
         {
             Context = context;
         }
 
-        public virtual DbSet<T> Entities
+        protected virtual DbSet<T> Entities
         {
             get { return Context.Set<T>(); }
         }

@@ -22,6 +22,6 @@ namespace Data
 
         DbEntityEntry Entry(object entity);
 
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+        void SetModified<T>(T storedEntity, T newEntity) where T : IdProvider;
     }
 }

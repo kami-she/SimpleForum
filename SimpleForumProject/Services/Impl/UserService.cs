@@ -7,24 +7,15 @@ using System.Threading.Tasks;
 
 namespace Services.Impl
 {
-    public class UserService : IUserService
+    public class UserService : BaseService<User>, IUserService
     {
-        private IForumContext context;
-
-        public UserService (IForumContext context)
+        public UserService (IForumContext context) : base(context)
         {
-            this.context = context;
         }
 
-        public void AddUser (User user)
+        public bool CheckIfUserExists (User user)
         {
-            context.Users.Add(user);
-            context.SaveChanges();
-        }
-
-        public bool GetUser (User user)
-        {
-            return context.Users.Any(x => x.UserName == user.UserName && x.Password == user.Password);
+            return Context.Users.Any(x => x.UserName == user.UserName && x.Password == user.Password);
         }
     }
 }

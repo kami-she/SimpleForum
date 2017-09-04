@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public interface IUserService
+    public interface IUserService : IBaseService<User>
     {
-        void AddUser(User user);
-
-        bool GetUser(User user);
+        bool CheckIfUserExists (User user);
     }
 }

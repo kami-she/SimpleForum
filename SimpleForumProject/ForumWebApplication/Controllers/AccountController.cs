@@ -32,7 +32,7 @@ namespace ForumWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (userService.GetUser(mapper.Map<User>(model)))
+                if (userService.CheckIfUserExists(mapper.Map<User>(model)))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
                     return RedirectToAction("Index", "Home");
@@ -56,8 +56,8 @@ namespace ForumWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                userService.AddUser(mapper.Map<User>(model));
-                if (userService.GetUser(mapper.Map<User>(model)))
+                userService.Create(mapper.Map<User>(model));
+                if (userService.CheckIfUserExists(mapper.Map<User>(model)))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, true);
                     return RedirectToAction("Index", "Home");

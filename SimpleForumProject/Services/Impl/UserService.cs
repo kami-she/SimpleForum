@@ -1,4 +1,5 @@
 ﻿using Data;
+using Services.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,16 @@ namespace Services.Impl
         {
         }
 
+        public void AddUser(User user)
+        {
+            user.Password = HashingHelper.HashPassword(user.Password);
+            Create(user);
+        }
+
         public bool CheckIfUserExists (User user)
         {
-            return Context.Users.Any(x => x.UserName == user.UserName && x.Password == user.Password);
+            string hashPassword = HashingHelper.HashPassword(user.Password);
+            return Context.Users.Any(x => x.UserName == user.UserName && x.Password == hashPassword);
         }
     }
 }

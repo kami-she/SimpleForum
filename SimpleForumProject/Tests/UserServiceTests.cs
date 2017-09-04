@@ -39,7 +39,7 @@ namespace Tests
         {
             Assert.AreEqual(0, userService.GetAll().Count());
             User user = new User() { UserName = "Nina", Password = "123", Email = "Kkk" };
-            userService.Create(user);
+            userService.AddUser(user);
             Assert.AreEqual(1, userService.GetAll().Count());
         }
 

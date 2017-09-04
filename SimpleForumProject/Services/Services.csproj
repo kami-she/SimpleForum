@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\HashingHelper.cs" />
     <Compile Include="IBaseService.cs" />
     <Compile Include="Impl\BaseService.cs" />
     <Compile Include="Impl\UserService.cs" />

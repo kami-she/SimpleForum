@@ -11,7 +11,6 @@ namespace Data
     {
         public ForumContext() : base("ForumContext")
         {
-
         }
 
         public virtual DbSet<User> Users { get; set; }

@@ -9,14 +9,9 @@ namespace ForumWebApplication.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public string Index()
+        public ActionResult Index()
         {
-            string result = "You are not authorized";
-            if (User.Identity.IsAuthenticated)
-            {
-                result = "Your login: " + User.Identity.Name;
-            }
-            return result;
+            return View();
         }
 
         [Authorize]

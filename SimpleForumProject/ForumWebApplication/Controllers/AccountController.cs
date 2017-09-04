@@ -66,6 +66,7 @@ namespace ForumWebApplication.Controllers
             return View(model);
         }
 
+        [Authorize]
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();

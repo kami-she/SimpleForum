@@ -10,9 +10,9 @@ namespace Services
 {
     public interface IBaseService<T> where T : IdProvider
     {
-        T Create(T entity);
+        void Create(T entity);
 
-        T Update(T entity);
+        void Update(T entity);
 
         void Delete(T entity);
 

@@ -14,10 +14,10 @@ namespace Services.Impl
         {
         }
 
-        public void AddUser(User user)
+        public override void Create(User user)
         {
             user.Password = HashingHelper.HashPassword(user.Password);
-            Create(user);
+            base.Create(user);
         }
 
         public bool CheckIfUserExists (User user)

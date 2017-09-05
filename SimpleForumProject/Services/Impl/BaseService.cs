@@ -22,28 +22,26 @@ namespace Services.Impl
             get { return Context.Set<T>(); }
         }
 
-        public virtual T Create(T entity)
+        public virtual void Create(T entity)
         {
             Entities.Add(entity);
             Context.SaveChanges();
-            return entity;
         }
 
-        public virtual T Update(T entity)
+        public virtual void Update(T entity)
         {
             var storedEntity = Entities.FirstOrDefault(x => x.Id == entity.Id);
 
             if (storedEntity == null)
             {
                 entity.Id = 0;
-                return Create(entity);
+                Create(entity);
             }
             else
             {
                 Context.SetModified(storedEntity, entity);
                 Context.SaveChanges();
             }
-            return entity;
         }
 
         public virtual void Delete(T entity)

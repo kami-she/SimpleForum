@@ -10,7 +10,5 @@ namespace Services
     public interface IUserService : IBaseService<User>
     {
         bool CheckIfUserExists (User user);
-
-        void AddUser(User user);
     }
 }
